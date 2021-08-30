@@ -1,0 +1,6 @@
+[user]
+	name = Gustavo Gimenez
+[alias] # Alias to create git branches based on the jira ticket numbers
+	fe = "!f() { git checkout -b \"feature/XXX-$1\"; }; f"
+	bug = "!f() { git checkout -b \"bugfix/XXX-$1\"; }; f"
+	rel = "!f() { git checkout -b \"release/v$1\"; }; f"%

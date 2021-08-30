@@ -1,0 +1,25 @@
+[user]
+	name = Gustavo Gimenez
+[core]
+	excludesfile = $HOME/.gitignore_global
+[includeIf "gitdir:<employeer_workspace_path>"] # job needs, like workspace/* so all included projects
+    path = .gitconfig-custom
+[alias]
+	pf = push --force-with-lease
+	amend = commit --amend -C HEAD
+	l = log --oneline --graph
+	co = checkout
+	cb = checkout -
+	rbc = rebase --continue
+	rba = rebase --abort
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	del = "!f() { git push origin :\"$1\"; }; f"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[fetch]
+	prune = true
+[push]
+	default = current
